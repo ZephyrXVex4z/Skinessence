@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SKIN WORKOUT • ALTA ESTÉTICA CUTÁNEA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&display=swap');
+
+    :root {
+      --slav: 'Playfair Display', 'Georgia', serif;
+      --calibri: 'Calibri', 'Gill Sans', 'Trebuchet MS', sans-serif;
+      --ink: #0a0a0a;
+      --bone: #f0ede8;
+      --gold: #c8a96a;
+      --glass: rgba(255,255,255,0.03);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--ink);
+      color: var(--bone);
+      font-family: var(--calibri);
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── NOISE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none; opacity: .6;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 7rem 2rem 5rem;
+    }
+
+    header h1 {
+      font-family: var(--slav);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 900;
+      color: var(--bone);
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    header h1 span {
+      color: var(--gold);
+    }
+
+    header p {
+      font-family: var(--calibri);
+      font-size: .95rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: rgba(240,237,232,.5);
+      margin-top: 1.5rem;
+    }
+
+    /* ── BENEFITS SECTION ── */
+    .benefits-section {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto 5rem;
+      padding: 0 2rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-family: var(--slav);
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--bone);
+      margin-bottom: 3.5rem;
+    }
+
+    .section-subtitle span {
+      color: var(--gold);
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .benefit-item {
+      background: var(--glass);
+      border: 1px solid rgba(240,237,232,.05);
+      padding: 3.5rem 2rem;
+      text-align: left;
+      transition: border-color .3s, transform .3s;
+    }
+
+    .benefit-item:hover {
+      border-color: rgba(200,169,106,.4);
+      transform: translateY(-3px);
+    }
+
+    .benefit-item h3 {
+      font-family: var(--slav);
+      color: var(--gold);
+      font-size: 1.4rem;
+      margin-bottom: 1.2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .benefit-item p {
+      font-size: 0.95rem;
+      color: rgba(240,237,232,.7);
+      line-height: 1.7;
+    }
+
+    /* ── GALLERY GRID ── */
+    .gallery-section {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .gallery-item {
+      background: var(--glass);
+      border: 1px solid rgba(200,169,106,.15);
+      overflow: hidden;
+      aspect-ratio: 1 / 1; 
+      position: relative;
+      transition: border-color .3s, transform .3s;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s ease;
+    }
+
+    .gallery-item:hover {
+      border-color: rgba(200,169,106,.45);
+      transform: translateY(-4px);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .gallery-meta {
+      padding: 1.2rem;
+      background: #0f0f0f;
+      border-top: 1px solid rgba(200,169,106,.15);
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(240,237,232,.5);
+      text-align: center;
+    }
+
+    /* ── CTA INSTAGRAM ── */
+    .cta-container {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      margin: 3rem auto 7rem;
+      padding: 0 2rem;
+      max-width: 700px;
+    }
+
+    .cta-container h2 {
+      font-family: var(--slav);
+      font-size: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+    }
+
+    .cta-container p {
+      font-size: 1rem;
+      color: rgba(240,237,232,.6);
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn-instagram {
+      font-family: var(--calibri);
+      font-size: 0.95rem;
+      color: var(--ink);
+      background: var(--gold);
+      text-decoration: none;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      font-weight: 900;
+      gap: 0.8rem;
+      transition: background .25s, transform .2s;
+    }
+
+    .btn-instagram:hover {
+      background: var(--bone);
+      transform: scale(1.03);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2.5rem;
+      font-family: var(--calibri);
+      font-size: .75rem;
+      letter-spacing: .2em;
+      color: rgba(240,237,232,.25);
+      border-top: 1px solid rgba(255,255,255,.04);
+      position: relative; z-index: 1;
+      margin-top: auto;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ CABECERA PRINCIPAL ══ -->
+  <header>
+    <h1>SKIN <span>WORKOUT</span></h1>
+    <p>EL ARTE, LA DISCIPLINA Y LA EVOLUCIÓN DEL CUIDADO CUTÁNEO</p>
+  </header>
+
+  <!-- ══ SECCIÓN BENEFICIOS EXPANDIDA ══ -->
+  <main class="benefits-section">
+    <h2 class="section-subtitle">BENEFICIOS <span>ESTRUCTURALES</span></h2>
+    
+    <div class="benefits-grid">
+      <!-- Beneficio 1 -->
+      <div class="benefit-item">
+        <h3>01. PROTECCIÓN CELULAR</h3>
+        <p>CONSTRUYE UNA BARRERA BIOLÓGICA INQUEBRANTABLE CONTRA LOS RADICALES LIBRES, LA RADIACIÓN SOLAR DIARIA Y LOS AGENTES CONTAMINANTES QUE OPACAN TU ROSTRO CONTINUAMENTE.</p>
+      </div>
+      
+      <!-- Beneficio 2 -->
+      <div class="benefit-item">
+        <h3>02. BALANCE PROFUNDO</h3>
+        <p>REGULA CON PRECISIÓN LA PRODUCCIÓN DE SEBO EN LOS POROS, DISMINUYENDO IMPERFECCIONES ACTIVAS Y REFINANDO DE MANERA GRADUAL TODA LA TEXTURA Y EL RELIEVE NATURAL DE TU PIEL.</p>
+      </div>
+      
+      <!-- Beneficio 3 -->
+      <div class="benefit-item">
+        <h3>03. LONGEVIDAD ACTIVA</h3>
+        <p>ESTIMULA LA PRODUCCIÓN NATURAL DE COLÁGENO Y ELASTINA EN LAS CAPAS MÁS PROFUNDAS DE LA DERMIS, DISMINUYENDO DE MANERA NOTABLE LA APARICIÓN DE LÍNEAS DE EXPRESIÓN TEMPRANAS.</p>
+      </div>
+
+      <!-- Beneficio 4 -->
+      <div class="benefit-item">
+        <h3>04. LUMINOSIDAD REAL</h3>
+        <p>PROMUEVE UNA RENOVACIÓN CELULAR CONSTANTE ACELERANDO LA ELIMINACIÓN DE CÉLULAS MUERTAS, DEVOLVIENDO UN TONO COMPLETAMENTE HOMOGÉNEO, FRESCO Y UN BRILLO SALUDABLE.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- ══ GALERÍA DE IMÁGENES (RUTAS LOCALES) ══ -->
+  <section class="gallery-section">
+    <h2 class="section-subtitle">EL ARCHIVO <span>VISUAL</span></h2>
+    
+    <div class="gallery-grid">
+
+      <!-- Imagen 1 -->
+      <div class="gallery-item">
+        <img src="IMG-20260623-WA0070.jpg" alt="SKIN WORKOUT MATERIAL 01" loading="lazy">
+        <div class="gallery-meta">IMG-20260623-WA0070.jpg</div>
+      </div>
+
+      <!-- Imagen 2 -->
+      <div class="gallery-item">
+        <img src="IMG-20260623-WA0071.jpg" alt="SKIN WORKOUT MATERIAL 02" loading="lazy">
+        <div class="gallery-meta">IMG-20260623-WA0071.jpg</div>
+      </div>
+
+      <!-- Imagen 3 -->
+      <div class="gallery-item">
+        <img src="IMG-20260623-WA0072.jpg" alt="SKIN WORKOUT MATERIAL 03" loading="lazy">
+        <div class="gallery-meta">IMG-20260623-WA0072.jpg</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ BOTÓN INSTAGRAM DE ACCIÓN ══ -->
+  <div class="cta-container">
+    <h2>ÚNETE AL MOVIMIENTO</h2>
+    <p>DESCUBRE NUEVAS GUÍAS DE MOVIMIENTO FACIAL, ANÁLISIS DE ACTIVOS AVANZADOS Y CONSEJOS COMPLETAMENTE DIARIOS DICTADOS POR EXPERTOS EN NUESTRO FEED.</p>
+    <a href="https://www.instagram.com/skin.workout?igsh=ZG5vanQ2aWxjMDd0" target="_blank" rel="noopener noreferrer" class="btn-instagram">
+      📸 SEGUIR EN @SKIN.WORKOUT
+    </a>
+  </div>
+
+  <!-- ══ PIE DE PÁGINA ══ -->
+  <footer>
+    © 2026 SKIN WORKOUT · TODOS LOS DERECHOS RESERVADOS · ESTÉTICA EXCLUSIVA
+  </footer>
+
+</body>
+</html>
+
